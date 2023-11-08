@@ -67,7 +67,7 @@ export default function Services() {
                             return (
                                 <div key={index}>
 
-                                    <div className="p-10 rounded-lg  flex flex-col space-y-3 bg-white dark:bg-neutral-900">
+                                    <div key={index} className="p-10 rounded-lg  flex flex-col space-y-3 bg-white dark:bg-neutral-900">
                                         {icons[index]}
                                         <div className="text-gray-600 text-lg dark:text-slate-200 font-medium">
                                             {list.title}
