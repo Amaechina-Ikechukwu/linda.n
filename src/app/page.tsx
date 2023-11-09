@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import LandingPage from '../../components/Home Component/LandingPage'
-import Features from '../../components/Home Component/Features'
-import About from '../../components/Home Component/About'
-import Services from '../../components/Home Component/Services'
-import Testimonials from '../../components/Home Component/Testimonials'
-import AskedQuestions from '../../components/Home Component/AskedQuestions'
+
+import About from '@/components/Home Component/About'
+import AskedQuestions from '@/components/Home Component/AskedQuestions'
+import Features from '@/components/Home Component/Features'
+import LandingPage from '@/components/Home Component/LandingPage'
+import Services from '@/components/Home Component/Services'
+import Testimonials from '@/components/Home Component/Testimonials'
 import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'LindaSalesPro',
@@ -21,11 +21,25 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="space-y-[100px] w-full ">
-      <LandingPage /><About />
-      <Features />
-      <Services />
-      <Testimonials />
-      <AskedQuestions />
+      <div id='#home'>
+        <LandingPage />
+      </div>
+      <div id='#about'>
+        <About />
+      </div>
+      <div id="#features">
+        <Features />
+      </div>
+      <div id='#services'>
+        <Services />
+      </div>
+      <div id='#testimonials'>
+        <Testimonials />
+      </div>
+      <div id='#askedquestions'>
+        <AskedQuestions />
+      </div>
+
     </main>
   )
 }
