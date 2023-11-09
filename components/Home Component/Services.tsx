@@ -19,14 +19,14 @@ export default function Services() {
     };
 
     const icons = [
-        <AccessTimeIcon sx={iconStyle} />,
-        <SnippetFolderIcon sx={iconStyle} />,
-        <MarkChatUnreadIcon sx={iconStyle} />,
-        <TrendingUpOutlinedIcon sx={iconStyle} />,
-        <ContactSupportIcon sx={iconStyle} />,
-        <MarkEmailUnreadOutlinedIcon sx={iconStyle} />,
-        <TabOutlinedIcon sx={iconStyle} />,
-        <FilterDramaOutlinedIcon sx={iconStyle} />,
+        <AccessTimeIcon sx={iconStyle} key={1} />,
+        <SnippetFolderIcon sx={iconStyle} key={2} />,
+        <MarkChatUnreadIcon sx={iconStyle} key={3} />,
+        <TrendingUpOutlinedIcon sx={iconStyle} key={4} />,
+        <ContactSupportIcon sx={iconStyle} key={5} />,
+        <MarkEmailUnreadOutlinedIcon sx={iconStyle} key={6} />,
+        <TabOutlinedIcon sx={iconStyle} key={7} />,
+        <FilterDramaOutlinedIcon sx={iconStyle} key={8} />,
     ];
 
     const serviceObject = [
@@ -65,16 +65,13 @@ export default function Services() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:justify-center ">
                         {serviceObject.map((list, index) => {
                             return (
-                                <div key={index}>
-
-                                    <div key={index} className="p-10 rounded-lg  flex flex-col space-y-3 bg-white dark:bg-neutral-900">
-                                        {icons[index]}
-                                        <div className="text-gray-600 text-lg dark:text-slate-200 font-medium">
-                                            {list.title}
-                                        </div>
-                                        <div className="text-gray-600 dark:text-slate-200 font-light">
-                                            {list.more}
-                                        </div>
+                                <div key={index} className="p-10 rounded-lg  flex flex-col space-y-3 bg-white dark:bg-neutral-900">
+                                    {icons[index]}
+                                    <div className="text-gray-600 text-lg dark-text-slate-200 font-medium">
+                                        {list.title}
+                                    </div>
+                                    <div className="text-gray-600 dark-text-slate-200 font-light">
+                                        {list.more}
                                     </div>
                                 </div>
                             );
