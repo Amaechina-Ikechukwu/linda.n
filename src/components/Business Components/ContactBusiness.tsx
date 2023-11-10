@@ -209,7 +209,7 @@ function ContactBusiness(props: { offers: Offers, from?: any, business: string }
                             {dropdownOpen && (
                                 <ul className="absolute z-10 mt-2 py-2 w-full bg-white border border-gray-300 rounded-md shadow-lg dark:bg-neutral-950 ">
                                     {props.offers !== undefined &&
-                                        props.offers?.data?.map((service: OfferData) => (
+                                        props.offers?.data.map((service: OfferData) => (
                                             <li
                                                 key={service.unique_id}
                                                 className="cursor-pointer p-2  flex items-center space-x-4 dark:bg-neutral-950"
