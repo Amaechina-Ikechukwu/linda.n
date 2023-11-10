@@ -1,12 +1,29 @@
 "use client"
-import { Offers } from "@/constants/Business/Offers";
+import { OfferData, Offers } from "@/constants/Business/Offers";
 import LindaButton from "@/constants/LindaButton";
+import SuccessModal from "@/constants/SuccessModal";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
-const Option = () => {
-    return <div className="w-8 h-8 bg-purple-200" />
+const Option = ({ selectedService, business }: any) => {
+    return (
+        <div className=" ">
+            <div className="flex items-end  ">
+                <p className="font-Poppins font-regular text-xs text-12 text-text text-gray-700 dark:text-slate-100 ">
+                    {selectedService?.description?.length > 150
+                        ? selectedService?.description.slice(0, 150) + "..."
+                        : selectedService?.description}
+                    <Link href={`${business}/${selectedService.unique_id}`}
+                        className="font-Poppins text-gray-700 dark:text-slate-100 hover:text-orange-400 text-xs underline ml-5 "
+                    >
+                        View Property Details
+                    </Link>
+                </p>
+            </div>
+        </div>
+    )
 }
 
-function ContactBusiness(props: { offers: Offers, from?: any }) {
+function ContactBusiness(props: { offers: Offers, from?: any, business: string }) {
     const inputs = [
         "First Name",
         "Last Name",
@@ -40,7 +57,7 @@ function ContactBusiness(props: { offers: Offers, from?: any }) {
     };
 
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         let hasError = false;
         let errors: any = {};
@@ -81,27 +98,46 @@ function ContactBusiness(props: { offers: Offers, from?: any }) {
         }
     };
 
-    const claimOffer = () => {
-        // Your fetch and API call here
-        // ...
 
-        // Assuming a successful API call for this example
-        setOpenModal(true);
-        setClaimProgress(false);
+    const claimOffer = () => {
+        fetch(`${process.env.NEXT_PUBLIC_DEV_LINK}/claim-offer`, {
+            method: "POST",
+            headers: new Headers({
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            }),
+            body: JSON.stringify({
+                firstname: inputValues["first-name"],
+                lastname: inputValues["last-name"],
+                phone: inputValues["phone-number"],
+                email: inputValues["email-address"],
+                offer: selectedService?.unique_id,
+            }),
+            redirect: "follow",
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                setOpenModal(true);
+                setClaimProgress(false);
+            })
+            .catch((error) => {
+                setClaimProgress(false);
+                console.error(error);
+                alert("An error occurred while claiming the offer. Please try again.");
+            });
     };
 
+
     useEffect(() => {
-        // Your useEffect logic here
-        // ...
     }, [selectedService]);
 
     return (
         <div className="md:w-full">
             <div className="w-full md:px-5 py-1 bg-first space-y-3">
-                {/* <div className={`flex ${props.from ? "justify-center" : "justify-start"}`}>
+                <div className={`flex ${props.from ? "justify-center" : "justify-start"}`}>
                     <h2
                         className={`${props.from ? "text-center" : "text-left"
-                            } text-2xl md:text-3xl `}
+                            } text-2xl md:text-3xl text-gray-600 dark:text-slate-100 `}
                     >
                         {props.from
                             ? !props.from
@@ -113,14 +149,14 @@ function ContactBusiness(props: { offers: Offers, from?: any }) {
                                 : "Confirm your interest"
                             : ""}
                     </h2>
-                </div> */}
+                </div>
                 <div className="space-y-6">
                     {convertToApiInputs().map((input, index) => (
                         input !== "service" && (
                             <div key={input}>
                                 <input
                                     type="text"
-                                    className="w-full p-2 rounded-md ring-2 focus:outline-none ring-orange-200 ring-offset-2 drop-shadow-sm text-sm text-gray-700 dark:text-slate-100"
+                                    className="w-full p-2 rounded-md ring-2 focus:outline-none ring-orange-50 ring-offset-2 drop-shadow-sm text-sm text-gray-700  dark:ring-offset-0 dark:bg-neutral-900 dark:text-slate-100"
                                     name={input}
                                     placeholder={inputs[index]}
                                     value={inputValues[input.toLowerCase().replace(" ", "")] || ""}
@@ -137,17 +173,26 @@ function ContactBusiness(props: { offers: Offers, from?: any }) {
                 </div>
 
                 {!props.from && (
-                    <div className="flex flex-col space-y-2 mr-3">
-                        <label htmlFor="selectProperty" className="font-bold">
+                    <div className="flex flex-col space-y-2 mr-3 w-full  ">
+                        <label htmlFor="selectProperty" className="font-regular text-sm text-gray-300 ">
                             Select Property
                         </label>
                         <div className="relative">
                             <button
                                 id="selectProperty"
-                                className={`w-full p-2 rounded-md ring-2 focus:outline-none ring-orange-200 ring-offset-2 drop-shadow-sm text-sm text-gray-700 dark:text-slate-100 text-left`}
+                                className={`w-full p-2 rounded-md ring-2 focus:outline-none ring-orange-50 ring-offset-2 drop-shadow-sm text-sm text-gray-700 dark:ring-offset-0 dark:text-slate-100 items-center justify-center text-left`}
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
                             >
-                                Select a property
+                                {selectedService ? <div>
+                                    <div
+                                        key={selectedService.unique_id}
+                                        className="cursor-pointer px-2 hover:bg-gray-100 flex items-center space-x-4 max-h-sm dark:bg-neutral-900 "
+
+                                    >
+                                        <img src={selectedService.image_url} className="w-10 h-8 mr-4 rounded-lg" />
+                                        <p>{selectedService.title}</p>
+                                    </div>
+                                </div> : " Select a property"}
                                 <svg
                                     className="w-6 h-6 absolute right-2 top-2.5"
                                     fill="none"
@@ -162,13 +207,13 @@ function ContactBusiness(props: { offers: Offers, from?: any }) {
                                 </svg>
                             </button>
                             {dropdownOpen && (
-                                <ul className="absolute z-10 mt-2 py-2 w-full bg-white border border-gray-300 rounded-md shadow-lg">
+                                <ul className="absolute z-10 mt-2 py-2 w-full bg-white border border-gray-300 rounded-md shadow-lg dark:bg-neutral-950 ">
                                     {props.offers !== undefined &&
-                                        props.offers?.data?.map((service) => (
+                                        props.offers?.data?.map((service: OfferData) => (
                                             <li
                                                 key={service.unique_id}
-                                                className="cursor-pointer p-2 hover:bg-gray-100 flex items-center space-x-4"
-                                                onClick={() => handleSelectService(service.unique_id)}
+                                                className="cursor-pointer p-2  flex items-center space-x-4 dark:bg-neutral-950"
+                                                onClick={() => handleSelectService(service)}
                                             >
                                                 <img src={service.image_url} className="w-10 h-8 mr-4 rounded-lg" />
                                                 {service.title}
@@ -182,32 +227,25 @@ function ContactBusiness(props: { offers: Offers, from?: any }) {
 
 
                 {selectedService?.description?.length > 0 ? (
-                    <div className="flex items-end">
-                        <p className="font-Poppins font-light text-12 text-text">
-                            {selectedService?.description?.length > 150
-                                ? selectedService?.description.slice(0, 150) + "..."
-                                : selectedService?.description}
-                            <button
-                                className="font-Poppins text-black text-12 underline ml-5"
-                            >
-                                View Property Details
-                            </button>
-                        </p>
-                    </div>
+                    <Option selectedService={selectedService} business={props.business} />
                 ) : null}
-                <LindaButton text="Submit Request" onClick={() => { }} classname="w-full bg-orange-500 " />
+                <div className="w-full mt-[40px]">
+                    <LindaButton text="Submit Request" onClick={handleSubmit}
+                        classname="w-full bg-orange-500 text-slate-200 mt-[40px]" />
+                </div>
+
                 {props.from && (
                     <p className="text-center text-12 font-light">
                         By clicking on activate, I agree to the Terms & Conditions for this Offer
                     </p>
                 )}
-                <div className="w-full">
-                    {openModal && (
-                        <div>
-                            {/* Modal content for success */}
-                        </div>
-                    )}
-                </div>
+
+
+
+                <SuccessModal isOpen={openModal} onClose={() => setOpenModal(false)} />
+
+
+
             </div>
         </div>
     );

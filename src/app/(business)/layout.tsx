@@ -1,12 +1,12 @@
 
 
-export default function Layout({
+export default function BusinessLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
     return (
 
-        <>{children}</>
+        <div>{children}</div>
     )
 }

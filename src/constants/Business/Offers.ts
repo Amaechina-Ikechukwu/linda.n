@@ -20,6 +20,6 @@ export interface OfferData {
 
 export interface Offers {
   success: boolean;
-  data: OfferData[];
+  data: OfferData;
   message: string;
 }

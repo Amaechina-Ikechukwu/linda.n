@@ -42,7 +42,7 @@ export default async function Page({ params }: { params: { business: string } })
         description: business.data.business_description,
     }
     return (
-        <div> <BusinessHome business={business} /> <script
+        <div className="mt-[130px]"> <BusinessHome business={business} /> <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         /></div>
