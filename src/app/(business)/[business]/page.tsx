@@ -1,6 +1,8 @@
 import BusinessHome from "@/components/Business Components/BusinessHome";
 import { BusinessData } from "@/constants/Business/BusinessData";
+import LoadingSkeleton from "@/constants/oadingSkeleton";
 import { Metadata } from "next"
+import { Suspense } from "react";
 
 async function getData(business: string): Promise<BusinessData> {
     const res = await fetch(`${process.env.DEV_LINK}/${business}/profile`, { next: { revalidate: 3600 } })
@@ -42,7 +44,7 @@ export default async function Page({ params }: { params: { business: string } })
         description: business.data.business_description,
     }
     return (
-        <div className="mt-[130px]"> <BusinessHome business={business} /> <script
+        <div className="mt-[130px]"><Suspense fallback={<LoadingSkeleton />}><BusinessHome business={business} /></Suspense>  <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         /></div>

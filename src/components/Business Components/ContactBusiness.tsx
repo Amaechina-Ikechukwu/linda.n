@@ -23,7 +23,7 @@ const Option = ({ selectedService, business }: any) => {
     )
 }
 
-function ContactBusiness(props: { offers: Offers, from?: any, business: string }) {
+function ContactBusiness(props: { offers: any, from?: any, business: string }) {
     const inputs = [
         "First Name",
         "Last Name",
@@ -85,10 +85,6 @@ function ContactBusiness(props: { offers: Offers, from?: any, business: string }
             errors["phone-number"] = "Phone number should be 11 digits";
             hasError = true;
         }
-        if (!selectedService) {
-            errors["service"] = "Please pick a service";
-            hasError = true;
-        }
 
         if (hasError) {
             setErrorMessage(errors);
@@ -111,7 +107,7 @@ function ContactBusiness(props: { offers: Offers, from?: any, business: string }
                 lastname: inputValues["last-name"],
                 phone: inputValues["phone-number"],
                 email: inputValues["email-address"],
-                offer: selectedService?.unique_id,
+                business: props.business,
             }),
             redirect: "follow",
         })
@@ -171,8 +167,8 @@ function ContactBusiness(props: { offers: Offers, from?: any, business: string }
                         )
                     ))}
                 </div>
-
-                {!props.from && (
+                {/* drop down menu for selecting property */}
+                {/* {!props.from && (
                     <div className="flex flex-col space-y-2 mr-3 w-full  ">
                         <label htmlFor="selectProperty" className="font-regular text-sm text-gray-300 ">
                             Select Property
@@ -209,7 +205,7 @@ function ContactBusiness(props: { offers: Offers, from?: any, business: string }
                             {dropdownOpen && (
                                 <ul className="absolute z-10 mt-2 py-2 w-full bg-white border border-gray-300 rounded-md shadow-lg dark:bg-neutral-950 ">
                                     {props.offers !== undefined &&
-                                        props.offers?.data.map((service: OfferData) => (
+                                        props.offers.data.map((service: OfferData) => (
                                             <li
                                                 key={service.unique_id}
                                                 className="cursor-pointer p-2  flex items-center space-x-4 dark:bg-neutral-950"
@@ -223,12 +219,12 @@ function ContactBusiness(props: { offers: Offers, from?: any, business: string }
                             )}
                         </div>
                     </div>
-                )}
+                )} */}
 
 
-                {selectedService?.description?.length > 0 ? (
+                {/* {selectedService?.description?.length > 0 ? (
                     <Option selectedService={selectedService} business={props.business} />
-                ) : null}
+                ) : null} */}
                 <div className="w-full mt-[40px]">
                     <LindaButton text="Submit Request" onClick={handleSubmit}
                         classname="w-full bg-orange-500 text-slate-200 mt-[40px]" />
