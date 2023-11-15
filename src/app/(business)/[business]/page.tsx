@@ -1,3 +1,4 @@
+import BusinessFooter from "@/components/Business Components/BusinessFooter";
 import BusinessHome from "@/components/Business Components/BusinessHome";
 import { BusinessData } from "@/constants/Business/BusinessData";
 import LoadingSkeleton from "@/constants/oadingSkeleton";
@@ -44,7 +45,7 @@ export default async function Page({ params }: { params: { business: string } })
         description: business.data.business_description,
     }
     return (
-        <div className="mt-[130px]"><Suspense fallback={<LoadingSkeleton />}><BusinessHome business={business} /></Suspense>  <script
+        <div className="mt-[130px]"><BusinessHome business={business} />  <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         /></div>

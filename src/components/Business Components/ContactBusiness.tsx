@@ -108,6 +108,7 @@ function ContactBusiness(props: { offers: any, from?: any, business: string }) {
                 phone: inputValues["phone-number"],
                 email: inputValues["email-address"],
                 business: props.business,
+                offer: props.from && props.offers.unique_id
             }),
             redirect: "follow",
         })
@@ -124,12 +125,13 @@ function ContactBusiness(props: { offers: any, from?: any, business: string }) {
     };
 
 
+
     useEffect(() => {
     }, [selectedService]);
 
     return (
-        <div className="md:w-full">
-            <div className="w-full md:px-5 py-1 bg-first space-y-3">
+        <div className="w-full flex flex-col items-center justify-center">
+            <div className="w-full  py-1  space-y-3">
                 <div className={`flex ${props.from ? "justify-center" : "justify-start"}`}>
                     <h2
                         className={`${props.from ? "text-center" : "text-left"
@@ -237,8 +239,10 @@ function ContactBusiness(props: { offers: any, from?: any, business: string }) {
                 )}
 
 
+                <div className="w-full flex  items-center justify-center">
+                    <SuccessModal isOpen={openModal} onClose={() => setOpenModal(false)} />
+                </div>
 
-                <SuccessModal isOpen={openModal} onClose={() => setOpenModal(false)} />
 
 
 

@@ -24,7 +24,6 @@ export async function generateMetadata(
 ): Promise<Metadata> {
     // read route params
     const offer = await getData(params.subID)
-    console.log(offer.data.business)
     return {
         title: offer.data.title,
         description: offer.data.description,
@@ -50,6 +49,10 @@ export default async function Page({ params }: { params: { subID: string } }) {
     return (
         <div>
             <PropertyInfo property={offer.data} />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
         </div>
     )
 }
