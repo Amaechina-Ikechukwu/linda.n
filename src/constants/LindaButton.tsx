@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 
-export default function LindaButton({ classname, onClick, text }: { classname?: string; onClick: (() => void) | any; text: string }) {
+export default function LindaButton({ classname, onClick, text }: { classname?: string; onClick?: (() => void) | any; text: string }) {
     return (
         <button
             onClick={onClick}

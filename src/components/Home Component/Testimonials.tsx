@@ -1,18 +1,18 @@
 
 const testinomials = [
     {
-        tesimony: `"LindaSalesPro has been a game-changer for my real estate business. The mobile app is user-friendly and has boosted my efficiency."`,
+        tesimony: `"Since I started using LindaSalesPro, my sales follow-up has really improved. The app makes it possible for me to organize all my prospects and follow up on them effectively."`,
         author: "Gift",
         service: "Sales Manager.",
     },
     {
-        tesimony: `"I love how LindaSalesPro keeps all my property information and client contacts organized and accessible. Highly recommended!"`,
-        author: "Grace",
+        tesimony: `"What I love the most about the LindaSalesPro App is the high-quality leads it sends to me from time to time without me having to spend huge on marketing and online ads"`,
+        author: "Amaka",
         service: "Digital Marketer.",
     },
     {
-        tesimony: `"The communication features are fantastic. I can reach out to clients right from the app, making my job easier to keep track of my follow-ups."`,
-        author: "Uche",
+        tesimony: `"I use the app to set my to-dos and sales targets for the month. LindaSalesPro has a way of keeping me motivated to achieve my daily tasks and sales goals."`,
+        author: "Ademola",
         service: "Marketing Director.",
     },
 ];

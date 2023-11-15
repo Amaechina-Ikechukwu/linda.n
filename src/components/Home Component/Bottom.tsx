@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { FaLinkedin } from "react-icons/fa";
 
 function Bottom() {
+    const currentYear = new Date().getFullYear();
 
 
     return (
@@ -12,15 +14,16 @@ function Bottom() {
                             href="https://ng.linkedin.com/company/chooya?trk=public_post_feed-actor-image"
                             target="_blank"
                         >
-                            <img
+                            <FaLinkedin className='bg-blue-400 scale-150' />
+                            {/* <img
                                 src="https://th.bing.com/th/id/R.14f8d0d8ea255a03471032d79087fdf0?rik=nO%2f6jENgayou0w&pid=ImgRaw&r=0"
                                 alt="LindaSalesPro LinkedIn link"
                                 className="w-10 h-8"
-                            />
+                            /> */}
                         </a>
                         <a href="https://twitter.com/lindasalespro" target="_blank">
                             <img
-                                src="https://th.bing.com/th/id/R.b909507357a3df14d1329cb0cc6b85bc?rik=PxluqXMNd1OT2A&pid=ImgRaw&r=0"
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png"
                                 alt="LindaSalesPro Twitter link"
                                 className="w-8 h-8"
                             />
@@ -55,6 +58,8 @@ function Bottom() {
                     </div>
                 </div>
             </div>
+            <div className='flex justify-center items-center text-slate-600 dark:text-slate-400 text-sm text-center'>&copy; {currentYear} LindaSalePro</div>
+
         </div>
     );
 }

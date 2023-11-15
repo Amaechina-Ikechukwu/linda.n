@@ -29,9 +29,7 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
             </div>
             <RequestModal isOpen={openModal} onClose={() => setOpenModal(false)} offer={property} business={property.business} />
 
-        </div> <div className="mt-[200px] bg-gray-900 dark:bg-neutral-900 absolute  w-screen right-0 bottom-[-700px] md:right-100 p-20">
-                <BusinessFooter business={property.business} />
-            </div>
+        </div>
         </div>
 
     )

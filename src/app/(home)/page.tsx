@@ -1,5 +1,6 @@
 
 import About from '@/components/Home Component/About'
+import ActionSection from '@/components/Home Component/ActionSection'
 import AskedQuestions from '@/components/Home Component/AskedQuestions'
 import Features from '@/components/Home Component/Features'
 import LandingPage from '@/components/Home Component/LandingPage'
@@ -21,24 +22,27 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="space-y-[100px] w-full ">
-      <div id='#home'>
+      <section id='home'>
         <LandingPage />
-      </div>
-      <div id='#about'>
+      </section>
+      <section id='about'>
         <About />
-      </div>
-      <div id="#features">
+      </section>
+      <section id="features">
         <Features />
-      </div>
-      <div id='#services'>
+      </section>
+      <section id='services'>
         <Services />
-      </div>
-      <div id='#testimonials'>
+      </section>
+      <section id='testimonials'>
         <Testimonials />
-      </div>
-      <div id='#askedquestions'>
+      </section>
+      <section>
+        <ActionSection />
+      </section>
+      <section id='askedquestions'>
         <AskedQuestions />
-      </div>
+      </section>
 
     </main>
   )

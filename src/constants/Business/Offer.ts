@@ -18,8 +18,8 @@ export interface OfferData {
   business: Record<string, any>; // Define the actual structure of the "business" object
 }
 
-export interface Offers {
+export interface Offer {
   success: boolean;
-  data: OfferData[];
+  data: OfferData;
   message: string;
 }

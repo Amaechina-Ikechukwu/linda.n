@@ -16,26 +16,31 @@ export default function AskedQuestions() {
         {
             question: "What is LindaSalesPro?",
             answer:
-                "LindaSalesPro is a mobile CRM app designed to empower sales and marketing professionals to generate more leads online and effortlessly follow up with them via WhatsApp, calls, SMS, or email. Organize leads on your mobile phone and activate automated, personalized email follow-up.",
+                "LindaSalesPro is a real estate sales and marketing tool that helps agents generate high-quality leads and effortlessly convert them into sales using its built-in sales follow-up tools.",
         },
         {
-            question: "How does LindaSalesPro work?",
+            question: "How much does it cost to use LindaSalesPro?",
             answer:
-                "LindaSalesPro works by allowing you to create Lead-Gen campaign links that capture user data and automatically follow up with potential leads. This streamlines your sales process and increases conversion rates.",
+                "LindaSalesPro offers free built-in sales follow-up tools for real estate agents. You only pay to obtain a verified agent badge, enabling you to start receiving leads and get matched with property seekers.",
         },
         {
-            question: "Is LindaSalesPro User-Friendly?",
+            question: "How does LindaSalesPro help me with online marketing?",
             answer:
-                "Yes, LindaSalesPro is designed to be user-friendly and easy to set up and manage. You don't need any technical expertise to use it.",
+                "LindaSalesPro empowers you to generate custom links for running Facebook and Instagram Lead Ads. It allows you to schedule and broadcast new property updates to all your prospects via SMS and email. Additionally, it creates an online profile for you to showcase your properties, skills, and experience, enabling interested individuals to view available properties for sale, contact you, and book property inspections.",
         },
         {
-            question: "Can I try LindaSalesPro for free?",
-            answer: "Yes, you can sign up for LindaSalesPro for free and start generating and converting leads right away.",
+            question: "Does LindaSalesPro help me generate free leads?",
+            answer: "Yes. Through our agent-matching platform, we receive daily requests from individuals seeking experienced agents to assist them in selling or buying genuine properties. We then forward their contacts and requests to the top 3 agents who best match their criteria.",
         },
         {
-            question: "What makes LindaSalesPro a unique lead generation and conversion tool?",
+            question: "Do I have to pay for each lead I get from LindaSalesPro?",
             answer:
-                "LindaSalesPro is unique in that it combines lead generation and conversion into one app, making it easier and more effective for businesses. Plus, with its built-in automation, it saves businesses time and money in the long run.",
+                "No. Once you pass through our verification process to obtain our premium agent badge, you become eligible to start receiving leads. The number of leads you receive depends on factors such as your experience, the number of active sales captured on LindaSalesPro, and the volume of buyer requests in your location.",
+        },
+        {
+            question: "Can an agent use LindaSalesPro without being verified?",
+            answer:
+                "Yes. Any agent can sign up to use the built-in sales follow-up and marketing tools on LindaSalesPro to grow their real estate business. However, they won’t be able to receive leads from us until they become verified.",
         },
     ];
 
