@@ -4,7 +4,7 @@ export default function About() {
     return (
         <div className="py-5">
             <div className="space-y-[50px]">
-                <div className="bg-[yellow] w-20 h-5"></div>
+                <div className="bg-[#FFA500] w-20 h-5"></div>
                 <div className="w-full flex flex-col gap-5 items-start justify-between">
                     <h3 className="font-bold text-3xl text-gray-600  dark:text-slate-200 ">
                         Discover the Advantages of LindaSalesPro
@@ -15,7 +15,7 @@ export default function About() {
                         </p>
                     </div>
                 </div>
-                <div className="bg-[yellow] w-20 h-5"></div>
+                <div className="bg-[#FFA500] w-20 h-5"></div>
             </div>
         </div>
     );

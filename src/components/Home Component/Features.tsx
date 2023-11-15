@@ -1,6 +1,6 @@
 import React from 'react'
 const divStyle = {
-    backgroundColor: "yellow",
+    backgroundColor: "#FFA500",
     width: "80px",
     height: "10px",
     transform: "rotate(-45deg)",
@@ -84,7 +84,7 @@ export default function Features() {
                                     borderLeft: "none",
                                     width: "30px",
                                     height: "30px",
-                                    backgroundColor: "yellow",
+                                    backgroundColor: "#FFA500",
                                 }}
                             ></div>
                         </div>
@@ -93,7 +93,7 @@ export default function Features() {
 
                                 {/* {work.type} */}
                                 <div
-                                    style={{ backgroundColor: "yellow", width: 20, height: 20 }}
+                                    style={{ backgroundColor: "#FFA500", width: 20, height: 20 }}
                                 />
                             </h3>
                             <h4 className='text-md text-gray-600 font-regular dark:text-slate-200 md:max-w-xl'>

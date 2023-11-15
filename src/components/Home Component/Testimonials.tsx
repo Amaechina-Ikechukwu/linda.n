@@ -29,7 +29,7 @@ export default function Testimonials() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] justify-center ">
                     {testinomials.map((testinomial, index) => (
                         <div key={index} className="w-full">
-                            <div key={index} className="p-5 rounded-lg bg-gray-100 dark:bg-neutral-950 h-[140px] md:h-[150px]">
+                            <div key={index} className="p-5 rounded-lg bg-gray-100 dark:bg-neutral-950 h-[200px] md:h-[150px]">
                                 <div className="space-y-2">
                                     <p className=" text-gray-600 dark:text-slate-200">{testinomial.tesimony}</p>
                                     <div className="flex justify-end">

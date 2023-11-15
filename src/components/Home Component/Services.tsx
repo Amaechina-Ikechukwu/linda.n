@@ -15,7 +15,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 export default function Services() {
     const iconStyle = {
         fontSize: 50,
-        color: "yellow",
+        color: "#FFA500",
     };
 
     const icons = [

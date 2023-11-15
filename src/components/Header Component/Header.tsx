@@ -11,7 +11,16 @@ export default function Header({ params }: any) {
     const pathname = usePathname();
     const router = useRouter();
 
-    const scrollToSection = (sectionId) => {
+
+
+    const toggleMobileNav = () => {
+        const nav = document.getElementById('mobileNav');
+        if (nav) {
+            nav.classList.toggle('hidden');
+        }
+
+    };
+    const scrollToSection = (sectionId: string) => {
         const section = document.getElementById(sectionId);
         if (section) {
             window.scrollTo({
@@ -19,15 +28,8 @@ export default function Header({ params }: any) {
                 behavior: 'smooth'
             });
         }
+        toggleMobileNav()
     };
-
-    const toggleMobileNav = () => {
-        const nav = document.getElementById('mobileNav');
-        if (nav) {
-            nav.classList.toggle('hidden');
-        }
-    };
-
     return (
         <nav className='py-5 mt-3 flex flex-row items-center bg-transparent dark:bg-transparent rounded-lg justify-between'>
             <div className="flex items-center space-x-8">
@@ -53,10 +55,10 @@ export default function Header({ params }: any) {
                     </li>
                 </ul>
             </div>
-            <button className="block md:hidden py-2 px-4 ring-2 ring-gray-500/50 w-auto rounded-sm hover:scale-105 focus:105 transition duration-500 dark:rounded-md transform font-semibold" onClick={toggleMobileNav}>
+            <button className="block md:hidden  py-2 px-4 ring-2 ring-gray-500/50 w-auto rounded-sm hover:scale-105 focus:105 transition duration-500 dark:rounded-md transform font-semibold" onClick={toggleMobileNav}>
                 <Bars3BottomRightIcon className='dark:text-slate-100 w-5 h-5 dark:ring-slate-500/50 rounded-md text-gray-700' />
             </button>
-            <div id='mobileNav' className='h-screen w-[350px] p-4 space-y-[20px] absolute top-0 end-0 bg-white dark:bg-neutral-900 z-10 sm:hidden'>
+            <div id='mobileNav' className='fixed h-screen w-[350px] p-4 space-y-[20px]  top-0 end-0 bg-white dark:bg-neutral-900 z-10 sm:hidden'>
                 <div>
                     <button className="block md:hidden py-2 px-4 w-auto rounded-sm hover:scale-105 focus:105 transition duration-500 dark:rounded-md transform font-semibold" onClick={toggleMobileNav}>
                         <XMarkIcon className='dark:text-slate-100 w-5 h-5 dark:ring-slate-500/50 rounded-md text-gray-700' />
