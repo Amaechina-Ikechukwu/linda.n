@@ -15,7 +15,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 export default function Services() {
     const iconStyle = {
         fontSize: 50,
-        color: "#FFA500",
+        color: "#FF8C00",
     };
 
     const icons = [
@@ -81,7 +81,7 @@ export default function Services() {
                 <div className='w-full flex justify-center '>
                     <button className=" w-4/5 px-2  rounded-lg  text-center capitalize bg-neutral-950 dark:bg-slate-100 hover:from-linda transition-transform duration-500 hover:scale-105  py-5 dark:text-gray-600 text-slate-200"> <a
 
-                        target="_blank"
+                        target="_blank" rel="noreferrer"
                         href="https://play.google.com/store/apps/details?id=online.priceplan"
                     >
                         Try Linda for free

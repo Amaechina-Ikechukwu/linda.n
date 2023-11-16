@@ -12,8 +12,8 @@ export default function LandingPage() {
                     <h2 className='text-white text-lg max-w-2xl font-medium'>
                         {`Receive high-quality leads directly in your inbox and effortlessly convert them into successful sales using LindaSalesPro's built-in sales follow-up tools.`}
                     </h2>
-                    <button className='bg-[#FFA500] px-6 w-[200px] py-3 rounded-sm hover:scale-105 focus:105 transition duration-500 transform text-gray-900 font-semibold'>
-                        <a target='_blank' href='https://play.google.com/store/apps/details?id=online.priceplan'>Start for free 🚀</a>
+                    <button style={{ boxShadow: '0px 40px 40px rgba(255,165,0,0.5)' }} className='bg-[#FF8C00] px-6 w-full sm:w-[300px] py-4 rounded-sm hover:scale-105 focus:105 transition duration-500 transform text-slate-100 font-semibold'>
+                        <a target='_blank' rel="noreferrer" href='https://play.google.com/store/apps/details?id=online.priceplan'>Start for free 🚀</a>
                     </button>
 
                 </div>

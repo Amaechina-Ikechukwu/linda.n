@@ -6,7 +6,7 @@ export default function ActionSection() {
     return (
         <div className="py-5">
             <div className="space-y-[50px]">
-                <div className="bg-[#FFA500] w-20 h-5"></div>
+                <div className="bg-[#FF8C00] w-20 h-5"></div>
                 <div className="w-full flex flex-col gap-5 items-start justify-between">
                     <h3 className="font-bold text-3xl text-gray-600  dark:text-slate-200 ">
                         Ready to start closing more deals?
@@ -17,11 +17,11 @@ export default function ActionSection() {
                         </p>
                     </div>
 
-                    <Link target='_blank' href={'https://play.google.com/store/apps/details?id=online.priceplan'}>
-                        <LindaButton text=' Sign up for free 🚀' classname='bg-[#FFA500]' />
+                    <Link target='_blank' rel="noreferrer" href={'https://play.google.com/store/apps/details?id=online.priceplan'}>
+                        <LindaButton text=' Sign up for free 🚀' classname='bg-[#FF8C00] p-4 text-slate-100' />
                     </Link>
                 </div>
-                <div className="bg-[#FFA500] w-20 h-5"></div>
+                <div className="bg-[#FF8C00] w-20 h-5"></div>
             </div>
         </div>
     );

@@ -13,13 +13,13 @@ export default function Properties({ properties }: { properties: Offers }) {
                 {
                     properties.data.map((property: OfferData) => (
                         <Link key={property.unique_id} href={`/${property.business.business_url}/${property.unique_id}`}><div className='bg-slate-50 dark:bg-neutral-950 p-4 rounded-sm space-y-2 hover:scale-105 focus:105 transition duration-500 transform max-w-md  '>
-                            <img src={property.image_url} alt={property.title} className='max-h-xs' />
+                            <img src={property.image_url} alt={property.description} loading='lazy' className='max-h-xs' />
                             <div className='space-y-2'>
                                 <h2 className='text-gray-700 dark:text-slate-100 text-md font-bold'>{property.title}</h2>
                                 <h3 className='text-gray-700 dark:text-slate-100 text-sm font-regular'>{property.description.slice(0, 150) + "..."}</h3>
 
                             </div>
-                            <LindaButton text='View Property' classname='w-full border' />
+                            <LindaButton text='View Property' classname='w-full border p-2' />
                         </div>
                         </Link>
 

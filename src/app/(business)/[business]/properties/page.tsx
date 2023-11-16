@@ -59,7 +59,7 @@ export default async function Page({ params }: { params: { business: string } })
     return (
         <div>
             <Properties properties={offers} />
-            <div className="mt-[200px] bg-gray-100 dark:bg-neutral-900 absolute  w-screen right-0 bottom-[-700px] md:right-100 p-20">
+            <div className="mt-[200px] bg-gray-100 dark:bg-neutral-900 absolute  w-screen right-0 bottom-[-700px] md:right-100 px-10 md:px-20">
                 <BusinessFooter business={business.data} />
             </div>
             <script

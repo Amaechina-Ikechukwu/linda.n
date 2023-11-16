@@ -9,7 +9,7 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
     const [openModal, setOpenModal] = useState(false);
     return (
         <div><div className='sm:flex  sm:justify-between space-y-[20px] sm:space-x-[100px] mt-[100px] items-start'>
-            <img src={property.image_url} className='w-full sm:w-2/5 h-fit ' alt={property.title} />
+            <img src={property.image_url} className='w-full sm:w-2/5 h-fit ' alt={property.description} loading='lazy' />
             <div className='max-w-2xl space-y-[20px] sm:space-y-[40px] '>
                 <h1 className='text-gray-700 dark:text-slate-100 text-2xl font-bold'>{property.title}</h1>
                 <h2 className='text-gray-700 dark:text-slate-100 text-md leading-loose'>{property.description}</h2>
@@ -23,7 +23,7 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
                 <div className='space-y-[20px] sm:space-y-[20px]'>
                     <h5 className=' text-gray-700 dark:text-slate-100 text-2xl font-bold'>{property.currency + property.amount}</h5><h5 className='text-xs text-gray-700 dark:text-slate-100'>{`(Instead of ${property.currency + property.discounted_amount}, offer ends soon)`}</h5>
                     <div className='space-y-[10px] sm:space-y-[10px] mt-[20px] items-center'><h5 className='text-sm text-gray-700 dark:text-slate-100'>Interested in this property?</h5>
-                        <LindaButton classname='bg-gray-700 dark:bg-slate-100 dark:text-gray-700 text-slate-100 w-full' onClick={() => setOpenModal(true)} text='Submit Request' /></div>
+                        <LindaButton classname='bg-gray-700 dark:bg-slate-100 dark:text-gray-700 text-slate-100 w-full p-4' onClick={() => setOpenModal(true)} text='Submit Request' /></div>
 
                 </div>
             </div>

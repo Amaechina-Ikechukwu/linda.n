@@ -12,7 +12,7 @@ function Bottom() {
                     <div className="flex justify-center items-center space-x-10">
                         <a
                             href="https://ng.linkedin.com/company/chooya?trk=public_post_feed-actor-image"
-                            target="_blank"
+                            target="_blank" rel="noreferrer"
                         >
                             <FaLinkedin className='bg-blue-400 scale-150' />
                             {/* <img

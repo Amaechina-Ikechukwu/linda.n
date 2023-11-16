@@ -229,7 +229,7 @@ function ContactBusiness(props: { offers: any, from?: any, business: string }) {
                 ) : null} */}
                 <div className="w-full mt-[40px]">
                     <LindaButton text="Submit Request" onClick={handleSubmit}
-                        classname="w-full bg-orange-500 text-slate-200 mt-[40px]" />
+                        classname="w-full bg-orange-500 text-slate-200 mt-[40px] p-4" />
                 </div>
 
                 {props.from && (
