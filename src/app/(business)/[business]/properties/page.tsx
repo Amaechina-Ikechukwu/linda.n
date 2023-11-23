@@ -28,6 +28,14 @@ async function getBusiness(business: string): Promise<BusinessData> {
 
     return res.json()
 }
+export async function generateStaticParams() {
+    try {
+        const posts = await fetch(`https://dev-api.priceplan.online/api/web/business-urls`).then((res) => res.json())
+
+        return posts.data.map((post: any) => ({ business: post }))
+    }
+    catch (err) { }
+}
 export async function generateMetadata(
     { params }: { params: { business: string } }
 ): Promise<Metadata> {

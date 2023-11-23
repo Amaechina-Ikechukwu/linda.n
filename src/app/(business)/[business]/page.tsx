@@ -3,7 +3,8 @@ import BusinessHome from "@/components/Business Components/BusinessHome";
 import { BusinessData } from "@/constants/Business/BusinessData";
 import LoadingSkeleton from "@/constants/oadingSkeleton";
 import { Metadata } from "next"
-import { Suspense } from "react";
+
+
 
 async function getData(business: string): Promise<BusinessData> {
     const res = await fetch(`${process.env.DEV_LINK}/${business}/profile`, { next: { revalidate: 3600 } })
@@ -17,10 +18,20 @@ async function getData(business: string): Promise<BusinessData> {
 
     return res.json()
 }
+export async function generateStaticParams() {
+    const posts = await fetch(`https://dev-api.priceplan.online/api/web/business-urls`).then((res) => res.json())
+
+    return posts.data.map((post: any) => ({ business: post }))
+}
+
+
+
+
 export async function generateMetadata(
     { params }: { params: { business: string } }
 ): Promise<Metadata> {
     // read route params
+
     const business = await getData(params.business)
     return {
         title: business.data.business_name,
@@ -36,6 +47,7 @@ export async function generateMetadata(
     }
 }
 export default async function Page({ params }: { params: { business: string } }) {
+    console.log(params.business)
     const business = await getData(params.business)
     const jsonLd = {
         '@context': 'https://linda-n.vercel.app',
@@ -51,3 +63,4 @@ export default async function Page({ params }: { params: { business: string } })
         /></div>
     )
 }
+
