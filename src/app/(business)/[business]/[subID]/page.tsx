@@ -22,18 +22,7 @@ async function getData(subID: string): Promise<Offer> {
         throw new Error(error)
     }
 }
-export async function generateStaticParams({
-    params: { business },
-}: {
-    params: { business: string }
-}) {
-    try {
-        const posts = await fetch(`https://dev-api.priceplan.online/api/web/${business}/offers`).then((res) => res.json())
 
-        return posts.data.map((post: any) => ({ subID: post.unique_id }))
-    }
-    catch (err) { }
-}
 async function getBusiness(business: string): Promise<BusinessData> {
     const res = await fetch(`${process.env.DEV_LINK}/${business}/profile`, { next: { revalidate: 3600 } })
     // The return value is *not* serialized
