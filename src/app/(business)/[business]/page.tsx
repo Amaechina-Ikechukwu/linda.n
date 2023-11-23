@@ -1,8 +1,10 @@
-import BusinessFooter from "@/components/Business Components/BusinessFooter";
+
 import BusinessHome from "@/components/Business Components/BusinessHome";
 import { BusinessData } from "@/constants/Business/BusinessData";
 import LoadingSkeleton from "@/constants/oadingSkeleton";
 import { Metadata } from "next"
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 
 
@@ -18,11 +20,7 @@ async function getData(business: string): Promise<BusinessData> {
 
     return res.json()
 }
-export async function generateStaticParams() {
-    const posts = await fetch(`https://dev-api.priceplan.online/api/web/business-urls`).then((res) => res.json())
 
-    return posts.data.map((post: any) => ({ business: post }))
-}
 
 
 
@@ -47,7 +45,8 @@ export async function generateMetadata(
     }
 }
 export default async function Page({ params }: { params: { business: string } }) {
-    console.log(params.business)
+
+
     const business = await getData(params.business)
     const jsonLd = {
         '@context': 'https://linda-n.vercel.app',
