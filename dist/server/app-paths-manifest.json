@@ -1,10 +1,6 @@
 {
-  "/_not-found": "app/_not-found.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/privacypolicy/page": "app/privacypolicy/page.js",
   "/(home)/page": "app/(home)/page.js",
-  "/(business)/[business]/[subID]/page": "app/(business)/[business]/[subID]/page.js",
   "/(business)/[business]/page": "app/(business)/[business]/page.js",
-  "/(business)/[business]/properties/page": "app/(business)/[business]/properties/page.js"
+  "/accountdeletion/page": "app/accountdeletion/page.js",
+  "/accountdeletion/proceed/page": "app/accountdeletion/proceed/page.js"
 }
