@@ -17,7 +17,7 @@ export default function AccountDeletion() {
         }));
     };
     return (
-        <div className='flex flex-col md:w-3/5 space-y-8 items-center justify-center h-full w-full'>
+        <div className='w-full items-center justify-center flex flex-col '><div className='sm:w-3/5 space-y-8  h-full w-full'>
             <div>{/* Introduction */}
                 <p>Please complete this form to verify your identity, confirm you understand the action you are about to take and tell us why you are deleting your account</p>
             </div>
@@ -57,8 +57,9 @@ export default function AccountDeletion() {
             </div>
             <div className='w-full'>
                 {/* Button */}
-                <LindaButton text='Delete Account' classname='bg-red-500 h-14 w-full' />
+                <LindaButton text='Request For Account Deletion' classname='bg-red-500 h-14 w-full text-white' />
             </div>
-        </div>
+        </div></div>
+
     )
 }

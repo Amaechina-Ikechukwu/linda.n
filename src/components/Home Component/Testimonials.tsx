@@ -26,7 +26,7 @@ export default function Testimonials() {
                 <div className="text-2xl font-bold text-gray-600 dark:text-slate-200 text-center">
                     Testimonials From Satisfied Clients
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] items-center justify-self-center self-center place-self-center place-items-center place-content-center self-center content-center justify-self-center justify-center justify-items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] items-center justify-self-center self-center place-self-center place-items-center place-content-center self-center content-center justify-self-center justify-center justify-items-center flex-wrap flex">
                     {testimonials.map((testinomial, index) => (
                         <div key={index} className="w-full items-center justify-center ">
                             <div key={index} className="p-5 rounded-lg bg-gray-100 dark:bg-neutral-950 h-[200px] md:h-[150px] mx-auto ">

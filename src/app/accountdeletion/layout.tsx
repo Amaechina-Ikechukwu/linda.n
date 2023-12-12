@@ -20,7 +20,7 @@ export default function PrivacyPolicyLayout({
 }) {
     return (
 
-        <div className='h-screen'>{children}</div>
+        <div className='h-screen items-center w-full flex'>{children}</div>
 
     )
 }
