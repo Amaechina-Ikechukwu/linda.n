@@ -24,6 +24,9 @@ export default function SmallScreenMenu() {
                 <li className={pathname == '/testimonials' ? activeClassName : inActiveClassName}>
                     <Link href='/testimonials'>Testimonial</Link>
                 </li>
+                <li className={pathname == '/faqs' ? activeClassName : inActiveClassName}>
+                    <Link href='/faqs'>Testimonial</Link>
+                </li>
             </ul>
         </div>
     )

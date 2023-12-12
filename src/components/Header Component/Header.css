@@ -1,0 +1,6 @@
+/* Hide the mobile nav by default for small screens
+@media (max-width: 640px) {
+  #mobileNav {
+    display: none;
+  }
+} */

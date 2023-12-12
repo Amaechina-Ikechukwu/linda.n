@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function ActionSection() {
     return (
-        <div className="py-5">
+        <div className="py-5 flex space-x-12 items-center">
             <div className="space-y-[50px]">
                 <div className="bg-[#FF8C00] w-20 h-5"></div>
                 <div className="w-full flex flex-col gap-5 items-start justify-between">
@@ -22,6 +22,9 @@ export default function ActionSection() {
                     </Link>
                 </div>
                 <div className="bg-[#FF8C00] w-20 h-5"></div>
+            </div>
+            <div className='hidden sm:block'>
+                <img src='https://images.pexels.com/photos/814544/pexels-photo-814544.jpeg?auto=compress&cs=tinysrgb&w=600' className='w-full ' />
             </div>
         </div>
     );

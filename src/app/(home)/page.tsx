@@ -40,7 +40,7 @@ export default function Home() {
       <section>
         <ActionSection />
       </section>
-      <section id='askedquestions'>
+      <section id='faqs'>
         <AskedQuestions />
       </section>
 

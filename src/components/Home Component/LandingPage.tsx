@@ -6,7 +6,7 @@ export default function LandingPage() {
     return (
         <div>
             <div className=" relative h-[700px] md:h-[500px] w-full flex  justify-center bg-cover bg-none bg-center bg-no-repeat  transition duration-500 transform" style={{ backgroundImage: `url(${image})` }}>
-                <div className="bg-gradient-to-b from-[rgba(0,0,0,0.0)] to-[rgba(0,0,0,0.5)] absolute inset-x-0 bottom-0 p-6  md:p-12 space-y-8">
+                <div className="bg-gradient-to-b from-[rgba(0,0,0,0.3)] to-[rgba(0,0,0,0.6)] absolute inset-x-0 bottom-0 p-6  md:p-12 space-y-8 h-full flex flex-col justify-end">
                     <h1 className='text-white text-4xl font-bold '>Get top-notch leads, boost your Real Estate sales
                     </h1>
                     <h2 className='text-white text-lg max-w-2xl font-medium'>

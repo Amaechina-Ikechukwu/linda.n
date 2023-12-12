@@ -1,5 +1,5 @@
 
-const testinomials = [
+const testimonials = [
     {
         tesimony: `"Since I started using LindaSalesPro, my sales follow-up has really improved. The app makes it possible for me to organize all my prospects and follow up on them effectively."`,
         author: "Gift",
@@ -26,10 +26,10 @@ export default function Testimonials() {
                 <div className="text-2xl font-bold text-gray-600 dark:text-slate-200 text-center">
                     Testimonials From Satisfied Clients
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] justify-center ">
-                    {testinomials.map((testinomial, index) => (
-                        <div key={index} className="w-full">
-                            <div key={index} className="p-5 rounded-lg bg-gray-100 dark:bg-neutral-950 h-[200px] md:h-[150px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] items-center justify-self-center self-center place-self-center place-items-center place-content-center self-center content-center justify-self-center justify-center justify-items-center">
+                    {testimonials.map((testinomial, index) => (
+                        <div key={index} className="w-full items-center justify-center ">
+                            <div key={index} className="p-5 rounded-lg bg-gray-100 dark:bg-neutral-950 h-[200px] md:h-[150px] mx-auto ">
                                 <div className="space-y-2">
                                     <p className=" text-gray-600 dark:text-slate-200">{testinomial.tesimony}</p>
                                     <div className="flex justify-end">
@@ -40,6 +40,8 @@ export default function Testimonials() {
                         </div>
                     ))}
                 </div>
+
+
             </div>
         </div>
     );
