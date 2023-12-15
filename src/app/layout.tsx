@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Header from '@/components/Header Component/Header'
-import Bottom from '@/components/Home Component/Bottom'
+
 
 import { Poppins } from 'next/font/google';
 
@@ -23,7 +22,15 @@ export const metadata: Metadata = {
         description: 'Step up, stay organized, and stay motivated in your real estate sales follow-up. Close deals faster with the LindaSalesPro CRM app for Realtors.',
         images: ['https://priceplan.online/assets/Linda.be1e6a15.png']
     },
+    metadataBase: new URL('https://priceplan.online'),
+    alternates: {
+        canonical: '/',
+        languages: {
+            'en-US': '/en-US',
+        },
+    },
 }
+
 
 export default function RootLayout({
     children,
