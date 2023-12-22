@@ -28,12 +28,6 @@ export default async function sitemap() {
       changeFrequency: "yearly",
       priority: 1,
     },
-    {
-      url: "https://priceplan.online.com/privacypolicy",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
     ...businesses,
     ...links,
   ];
