@@ -15,11 +15,7 @@ function Bottom() {
                             target="_blank" rel="noreferrer"
                         >
                             <FaLinkedin className='bg-blue-400 scale-150' />
-                            {/* <img
-                                src="https://th.bing.com/th/id/R.14f8d0d8ea255a03471032d79087fdf0?rik=nO%2f6jENgayou0w&pid=ImgRaw&r=0"
-                                alt="LindaSalesPro LinkedIn link"
-                                className="w-10 h-8"
-                            /> */}
+
                         </a>
                         <a href="https://twitter.com/lindasalespro" target="_blank">
                             <img

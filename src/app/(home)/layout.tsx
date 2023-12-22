@@ -12,8 +12,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'LindaSalesPro',
     description: 'Step up, stay organized, and stay motivated in your real estate sales follow-up. Close deals faster with the LindaSalesPro CRM app for Realtors.',
-    images: ['https://priceplan.online/assets/Linda.be1e6a15.png']
-  },
+    images: ['https://firebasestorage.googleapis.com/v0/b/lio-6af30.appspot.com/o/Linda.png?alt=media&token=17ccadba-ffc7-44f9-a3d4-957e8d726a73']
+  }, icons: {
+    icon: ['https://firebasestorage.googleapis.com/v0/b/lio-6af30.appspot.com/o/Linda.png?alt=media&token=17ccadba-ffc7-44f9-a3d4-957e8d726a73'
+    ]
+  }
 }
 
 export default function HomeLayout({

@@ -51,7 +51,7 @@ export default function Header({ params }: any) {
 
     return (
         <nav className='py-5 mt-3 flex flex-row items-center bg-transparent dark:bg-transparent rounded-lg justify-between'>
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center justify-between w-full space-x-8">
                 <div>
                     <img
                         className="h-8 w-auto"
