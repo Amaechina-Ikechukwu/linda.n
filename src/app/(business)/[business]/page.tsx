@@ -42,6 +42,7 @@ export async function generateMetadata(
             title: business.data.business_name,
             description: business.data.business_description,
         },
+        keywords: [business.data.business_name, 'Real estate', 'Properties', 'Realtors', ...business.data.business_description.split(' ')],
     }
 }
 export default async function Page({ params }: { params: { business: string } }) {
@@ -49,8 +50,8 @@ export default async function Page({ params }: { params: { business: string } })
 
     const business = await getData(params.business)
     const jsonLd = {
-        '@context': 'https://linda-n.vercel.app',
-        '@type': 'Product',
+        '@context': 'https://priceplan.online',
+        '@type': 'Business',
         name: business.data.business_name,
         image: business.data.business_logo,
         description: business.data.business_description,
