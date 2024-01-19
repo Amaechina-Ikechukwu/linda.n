@@ -18,7 +18,7 @@ export default async function sitemap() {
       url: `https://priceplan.online/${url}`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 1,
+      priority: 2,
     };
   });
   return [
@@ -26,7 +26,7 @@ export default async function sitemap() {
       url: "https://priceplan.online",
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 1,
+      priority: 2,
     },
     ...businesses,
     ...links,
