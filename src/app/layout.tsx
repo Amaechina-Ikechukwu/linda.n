@@ -24,12 +24,12 @@ export const metadata: Metadata = {
     keywords: ['LindaSalesPro', 'Real Estate', 'Properties', 'Realtors'],
     openGraph: {
         title: 'LindaSalesPro',
-        description: 'Step up, stay organized, and stay motivated in your real estate sales follow-up. Close deals faster with the LindaSalesPro CRM app for Realtors.', url: 'https://priceplan.online',
+        description: 'Step up, stay organized, and stay motivated in your real estate sales follow-up. Close deals faster with the LindaSalesPro CRM app for Realtors.', url: 'https://lindasalespro.com',
         siteName: 'priceplan', locale: 'en_US',
         type: 'website',
         images: ['https://firebasestorage.googleapis.com/v0/b/lio-6af30.appspot.com/o/Linda.png?alt=media&token=17ccadba-ffc7-44f9-a3d4-957e8d726a73']
     },
-    metadataBase: new URL('https://priceplan.online'),
+    metadataBase: new URL('https://lindasalespro.com'),
     alternates: {
         canonical: 'https://linda.priceplan.online/',
         languages: {
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
             app_name: 'LindaSalesPro',
         },
         web: {
-            url: 'https://priceplan.online',
+            url: 'https://lindasalespro.com',
             should_fallback: true,
         },
     },
