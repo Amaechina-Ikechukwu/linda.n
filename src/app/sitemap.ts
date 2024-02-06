@@ -18,7 +18,7 @@ export default async function sitemap() {
       url: `https://lindasalespro.com/${url}`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 2,
+      priority: 1,
     };
   });
   return [
@@ -26,7 +26,7 @@ export default async function sitemap() {
       url: "https://lindasalespro.com",
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 2,
+      priority: 1,
     },
     ...businesses,
     ...links,
