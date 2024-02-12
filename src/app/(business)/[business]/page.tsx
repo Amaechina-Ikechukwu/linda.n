@@ -6,6 +6,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 async function getData(business: string): Promise<BusinessData> {
+  console.log(process.env.DEV_LINK);
   const res = await fetch(`${process.env.DEV_LINK}/${business}/profile`, {
     next: { revalidate: 3600 },
   });
