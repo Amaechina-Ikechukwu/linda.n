@@ -85,7 +85,7 @@ export default async function Page({
           left: 0,
         }}
       >
-        <div className="  bg-gray-100 dark:bg-neutral-900 py-10  px-10 md:px-20">
+        <div className="bg-gray-100 dark:bg-neutral-900 py-10  px-10 md:px-20">
           <BusinessFooter business={business.data} />
         </div>
       </div>
