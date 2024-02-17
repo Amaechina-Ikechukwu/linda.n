@@ -1,5 +1,5 @@
 import React from "react";
-
+import style from "./about.module.css";
 export default function About() {
   const advantages = [
     "Schedule bulk SMS and email broadcasts to keep your prospects and clients informed about new estates and properties.",
@@ -25,7 +25,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-9 place-content-center h-full w-full">
+          <div className={style.grid}>
             {advantages.map((advantage: string) => (
               <div
                 key={advantage}

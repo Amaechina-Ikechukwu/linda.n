@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://lindasalespro.com"),
   alternates: {
-    canonical: "https://lindasalespro.com/",
+    canonical: "lindasalespro.com",
     languages: {
       "en-US": "/en-US",
     },

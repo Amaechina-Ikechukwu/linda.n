@@ -1,0 +1,26 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px 9px; /* gap-x gap-y */
+  place-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.grid-item {
+  min-height: 40px;
+  box-shadow: 0 0 0 2px #000000;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px 9px; /* gap-x gap-y */
+    height: 100%;
+    width: 100%;
+    place-items: center;
+  }
+}
