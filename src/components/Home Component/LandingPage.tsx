@@ -9,7 +9,7 @@ export default function LandingPage() {
     "https://img.freepik.com/free-photo/medium-shot-woman-holding-phone_23-2149033787.jpg?w=740&t=st=1696574592~exp=1696575192~hmac=465b531475219b9325be2161d0295966486bf07e28c8e1f1119c06f558122f4a";
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between md:gap-7 animate-scroll animate-fadeIn">
+    <div className="flex flex-col md:flex-row items-center justify-between md:gap-7 animate-scroll animate-fadeIn mt-[40px]">
       <div className=" relative h-[700px] md:h-[500px] w-full flex flex-col gap-4  justify-center bg-cover bg-none bg-center bg-no-repeat  transition duration-500 transform">
         <h1 className="text-gray-600 dark:text-slate-200 text-6xl md:text-7xl font-bold leading-[1.2]">
           Close Real Estate Sales Faster with LindaSalesPro CRM

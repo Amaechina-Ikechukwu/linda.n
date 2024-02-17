@@ -17,12 +17,25 @@ export default function About() {
             Discover the Advantages of LindaSalesPro
           </h3>
           <div className="space-y-2">
-            <p className="font-light leading-8 text-base text-gray-600  dark:text-slate-200 md:max-w-5xl">
+            <p className="font-medium leading-8 text-base text-gray-600  dark:text-slate-200 md:max-w-5xl">
               Unlock the power of efficient property management, seamless client
               communication, and sales follow-up optimization with
               LindaSalesPro. Join hundreds of satisfied realtors who have
               transformed their real estate journey with our user-friendly CRM.
             </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-9 place-content-center h-full w-full">
+            {advantages.map((advantage: string) => (
+              <div
+                key={advantage}
+                className="h-78 md:h-40 shadow-2xl shadow-orange-500/50 p-4 rounded-lg flex "
+              >
+                <p className="font-regular leading-8 text-base text-gray-600 dark:text-slate-200 md:max-w-sm text-center">
+                  {advantage}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
         <div className="bg-[#FF8C00] w-20 h-5"></div>
