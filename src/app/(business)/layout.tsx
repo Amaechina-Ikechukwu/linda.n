@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "LindaSalesPro",
+  title:
+    "LindaSalesPro: Close Real Estate Sales Faster with LindaSalesPro CRM App",
   description:
     "Step up, stay organized, and stay motivated in your real estate sales follow-up. Close deals faster with the LindaSalesPro CRM app for Realtors.",
   generator: "Chooya",
@@ -9,7 +10,8 @@ export const metadata: Metadata = {
 
   keywords: ["LindaSalesPro", "Real Estate", "Properties", "Realtors"],
   openGraph: {
-    title: "LindaSalesPro",
+    title:
+      "LindaSalesPro: Close Real Estate Sales Faster with LindaSalesPro CRM App",
     description:
       "Step up, stay organized, and stay motivated in your real estate sales follow-up. Close deals faster with the LindaSalesPro CRM app for Realtors.",
     url: "https://lindasalespro.com",

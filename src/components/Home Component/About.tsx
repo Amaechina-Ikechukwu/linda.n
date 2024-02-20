@@ -7,6 +7,7 @@ export default function About() {
     "Seamlessly record follow-up conversations and appointments with prospects and clients, ensuring no leads slip through the cracks.",
     "Get matched with potential property seekers, with their contacts delivered straight to your inbox, and convert them into sales.",
     "Collaborate with other agents using our co-agent feature to close deals faster and grow your real estate network.",
+    "Generate a property listing website and create links to run Facebook lead ads for each of your properties",
   ];
   return (
     <div className="py-5">
@@ -25,11 +26,11 @@ export default function About() {
             </p>
           </div>
 
-          <div className={style.grid}>
+          <div className="w-full grid md:grid-cols-3 items-center gap-[40px]">
             {advantages.map((advantage: string) => (
               <div
                 key={advantage}
-                className="h-78 md:h-40 shadow-2xl shadow-orange-500/50 p-4 rounded-lg flex "
+                className="h-78 md:h-50 shadow-md shadow-orange-500/50 p-4 rounded-lg flex items-center"
               >
                 <p className="font-regular leading-8 text-base text-gray-600 dark:text-slate-200 md:max-w-sm text-center">
                   {advantage}

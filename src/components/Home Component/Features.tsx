@@ -1,12 +1,7 @@
+"use client";
+import { motion } from "framer-motion";
 import React from "react";
-
-const divStyle = {
-  backgroundColor: "#FF8C00",
-  width: "80px",
-  height: "10px",
-  transform: "rotate(-45deg)",
-  transformOrigin: "top left",
-};
+import style from "./landing.module.css";
 
 const works = [
   {
@@ -62,53 +57,79 @@ const works = [
 
 export default function Features() {
   return (
-    <div className="space-y-[150px] w-full">
-      {works.map((work, index) => (
-        <div
-          key={index}
-          className={`w-full md:flex ${
-            index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-          } space-y-12 md:justify-evenly items-center`}
-        >
-          <div className="relative w-full md:w-auto md:min-w-[400px] h-[300px]">
-            <img
-              src={work.image}
-              alt={work.note}
-              loading="lazy"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                borderTop: "5px solid yellow",
-                borderBottom: "5px solid yellow",
-                borderRight: "none",
-                borderLeft: "none",
-                width: "30px",
-                height: "30px",
-                backgroundColor: "#FF8C00",
-              }}
-            ></div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-3xl text-gray-600 dark:text-slate-200 font-medium flex items-end">
-              {/* {work.type} */}
-              <div
-                style={{ backgroundColor: "#FF8C00", width: 20, height: 20 }}
+    <div className="space-y-[50px] w-full">
+      <h2 className="text-3xl text-gray-600 dark:text-slate-200 font-medium flex items-end">
+        Getting Started with LindaSalesPro:
+      </h2>
+      <div className="space-y-[150px]  w-full">
+        {works.map((work, index) => (
+          <motion.div
+            key={work.note}
+            animate={{
+              // Define your desired animation here
+              opacity: 1,
+              scale: 1,
+              x: 0,
+              // Adjust duration, easing, and other options as needed
+            }}
+            transition={{
+              // Adjust transition parameters (type, duration, ease)
+              type: "spring",
+              stiffness: 100,
+              // ...
+            }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }} // Adjust visibility trigger options
+            className={`w-full md:flex ${
+              index % 2 === 0
+                ? "md:flex-row space-x-[40px]"
+                : "md:flex-row-reverse"
+            } space-y-[40px] md:justify-between items-center features`}
+          >
+            <div className="relative w-full md:w-auto md:min-w-[400px] h-[300px] ">
+              <img
+                src={work.image}
+                alt={work.note}
+                loading="lazy"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
               />
-            </h3>
-            <h4 className="text-md text-gray-600 font-regular dark:text-slate-200 md:max-w-xl">
-              {work.note}
-            </h4>
-          </div>
-        </div>
-      ))}
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  borderTop: "5px solid yellow",
+                  borderBottom: "5px solid yellow",
+                  borderRight: "none",
+                  borderLeft: "none",
+                  width: "30px",
+                  height: "30px",
+                  backgroundColor: "#FF8C00",
+                }}
+              ></div>
+            </div>
+            <div
+              className={`space-y-[40px] md:min-w-[400px] ${
+                index % 2 === 0 && ""
+              }`}
+            >
+              <h3 className="text-3xl text-gray-600 dark:text-slate-200 font-medium flex items-end">
+                {/* {work.type} */}
+                <div
+                  style={{ backgroundColor: "#FF8C00", width: 20, height: 20 }}
+                />
+              </h3>
+              <h4 className="text-md text-gray-600 font-regular dark:text-slate-200 md:max-w-xl">
+                {work.note}
+              </h4>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }
