@@ -72,7 +72,8 @@ export default function Services() {
                   key={index}
                   className="p-10 rounded-lg  flex flex-col space-y-3 bg-white dark:bg-neutral-900"
                 >
-                  {icons[index]}
+                  <div className="animate-bounce">{icons[index]}</div>
+
                   <div className="text-gray-600 text-lg dark:text-slate-200 font-medium">
                     {list.title}
                   </div>
