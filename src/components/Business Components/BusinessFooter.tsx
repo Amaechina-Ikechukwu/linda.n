@@ -16,7 +16,7 @@ export default function BusinessFooter({ business }: any) {
             <p>Featured Properties from {business.business_name}</p>
           </Link>
         </div>
-        <div className="space-y-4 flex md:flex-row md:space-y-0 md:space-x-6 md:items-center">
+        <div className="space-y-4 flex flex-col md:flex-row md:space-y-0 md:space-x-6 md:items-center">
           <h5 className="text-gray-700 dark:text-slate-300">Contact Us</h5>
           <div className="space-y-4 flex md:flex-row md:space-y-0 md:space-x-6">
             <div className="flex space-x-2 font-thin text-sm items-center text-gray-600 dark:text-slate-400">
