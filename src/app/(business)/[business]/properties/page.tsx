@@ -2,8 +2,9 @@ import BusinessFooter from "@/components/Business Components/BusinessFooter";
 import Properties from "@/components/Business Components/Properties";
 import { BusinessData } from "@/constants/Business/BusinessData";
 import { Offers } from "@/constants/Business/Offers";
+import LoadingSkeleton from "@/constants/oadingSkeleton";
 import { Metadata } from "next";
-import React from "react";
+import React, { Suspense } from "react";
 async function getData(business: string): Promise<Offers> {
   const res = await fetch(`${process.env.DEV_LINK}/${business}/offers`, {
     next: { revalidate: 3600 },
@@ -76,19 +77,22 @@ export default async function Page({
   };
   return (
     <div className="">
-      <Properties properties={offers} />
-      <div
-        style={{
-          position: "absolute",
-          marginTop: "200px",
-          right: 0,
-          left: 0,
-        }}
-      >
-        <div className="bg-gray-100 dark:bg-neutral-900 py-10  px-10 md:px-20">
-          <BusinessFooter business={business.data} />
+      {" "}
+      <Suspense fallback={<LoadingSkeleton />}>
+        <Properties properties={offers} />
+        <div
+          style={{
+            position: "absolute",
+            marginTop: "200px",
+            right: 0,
+            left: 0,
+          }}
+        >
+          <div className="bg-gray-100 dark:bg-neutral-900 py-10  px-10 md:px-20">
+            <BusinessFooter business={business.data} />
+          </div>
         </div>
-      </div>
+      </Suspense>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

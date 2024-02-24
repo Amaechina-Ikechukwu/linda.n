@@ -1,5 +1,6 @@
 import { OfferData, Offers } from "@/constants/Business/Offers";
 import LindaButton from "@/constants/LindaButton";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -18,12 +19,17 @@ export default function Properties({ properties }: { properties: Offers }) {
             href={`/${property.business.business_url}/${property.unique_id}`}
           >
             <div className="bg-slate-50 dark:bg-neutral-950 p-4 rounded-sm space-y-2 hover:scale-105 focus:105 transition duration-500 transform max-w-md  ">
-              <img
-                src={property.image_url}
-                alt={property.description}
-                loading="lazy"
-                className="max-h-xs"
-              />
+              <div>
+                <Image
+                  src={property.image_url}
+                  alt={property.description}
+                  loading="lazy"
+                  width={500}
+                  height={300}
+                  className="h-90"
+                />
+              </div>
+
               <div className="space-y-2">
                 <h2 className="text-gray-700 dark:text-slate-100 text-md font-bold">
                   {property.title}
