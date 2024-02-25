@@ -9,15 +9,18 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
   const [openModal, setOpenModal] = useState(false);
   return (
     <div>
-      <div className="sm:flex  sm:justify-between space-y-[20px] sm:space-x-[100px] mt-[100px] items-start">
-        <img
-          src={property.image_url}
-          className="w-full sm:w-2/5 h-fit "
-          alt={property.description}
-          loading="lazy"
-        />
-        <div className="sm:w-5/6  space-y-[20px] sm:space-y-[40px] ">
-          <h1 className="text-gray-700 dark:text-slate-100 text-2xl font-bold">
+      <div className="sm:flex  sm:justify-between space-y-[20px] sm:space-x-[80px] sm:mt-[100px] items-start ">
+        <div className=" sm:w-full h-full sm:p-2">
+          <img
+            src={property.image_url}
+            className="w-screen sm:w-full h-full "
+            alt={property.description}
+            loading="lazy"
+          />
+        </div>
+
+        <div className="sm:w-5/6  h-full space-y-[20px] sm:space-y-[40px] ">
+          <h1 className="text-gray-700  dark:text-slate-100 text-3xl font-bold">
             {property.title}
           </h1>
           <h2 className="text-gray-700 dark:text-slate-100 text-md leading-loose">
@@ -55,13 +58,13 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
             </div>
           </div>
         </div>
-        <RequestModal
-          isOpen={openModal}
-          onClose={() => setOpenModal(false)}
-          offer={property}
-          business={property.business}
-        />
-      </div>
+      </div>{" "}
+      <RequestModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+        offer={property}
+        business={property.business}
+      />
     </div>
   );
 }

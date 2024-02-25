@@ -26,11 +26,11 @@ export default function About() {
             </p>
           </div>
 
-          <div className="w-full grid md:grid-cols-3 p-4 py-10 bg-[#FF8C00] items-center place-items-center gap-[40px]">
+          <div className="w-full grid md:grid-cols-3 p-4 py-10 bg-gray-100 dark:bg-neutral-950 items-center place-items-center gap-[40px]">
             {advantages.map((advantage: string) => (
               <div
                 key={advantage}
-                className="dark:bg-black space-y-6 bg-white w-5/6 md:w-full h-78  shadow-md shadow-orange-500/50 p-4  flex flex-col items-center"
+                className="dark:bg-black space-y-6 bg-white w-5/6 md:w-full h-78   p-4  flex flex-col items-center"
               >
                 <div className="flex items-start w-full">
                   <div className="bg-[#FF8C00] w-7 h-7 p-2 flex items-center animate-bounce">

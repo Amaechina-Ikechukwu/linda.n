@@ -84,7 +84,7 @@ export default async function Page({
     <div>
       <Suspense fallback={<LoadingSkeleton />}>
         <PropertyInfo property={offer.data} />
-        <div className="mt-[200px] bg-gray-100 dark:bg-neutral-900 absolute  w-screen right-0 md:right-100  p-20 px-10 md:px-20">
+        <div className="mt-[100px] bg-gray-100 dark:bg-neutral-900 absolute  w-screen right-0 md:right-100  p-20 px-10 md:px-20">
           <BusinessFooter business={business.data} />
         </div>
       </Suspense>

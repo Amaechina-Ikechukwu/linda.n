@@ -79,11 +79,11 @@ export default async function Page({
     <div className="">
       {" "}
       <Suspense fallback={<LoadingSkeleton />}>
-        <Properties properties={offers} />
+        <Properties properties={offers} business={business} />
         <div
           style={{
             position: "absolute",
-            marginTop: "200px",
+            marginTop: "100px",
             right: 0,
             left: 0,
           }}

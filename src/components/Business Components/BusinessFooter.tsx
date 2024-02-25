@@ -7,7 +7,7 @@ export default function BusinessFooter({ business }: any) {
 
   return (
     <footer>
-      <div className="space-y-8 ">
+      <div className="space-y-8 sm:flex sm:flex-col sm:items-center">
         <div className="w-fit">
           <Link
             href={`/${business.business_url}/properties`}
