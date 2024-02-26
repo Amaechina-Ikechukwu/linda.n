@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
 import "./Header.css";
+import logo from "@/assets/LindaSalesPro-Colored.png";
 import { motion } from "framer-motion";
+import Image from "next/image";
 export default function Header({ params }: any) {
   const activeClassName =
     "w-fit md:w-full py-2 ring-2 ring-gray-500/50 dark:text-slate-100 dark:ring-slate-500/50 rounded-md text-gray-700 px-4";
@@ -77,9 +79,9 @@ export default function Header({ params }: any) {
     <nav className="py-5 mt-3 flex flex-row items-center bg-transparent dark:bg-transparent rounded-lg justify-between">
       <div className="flex items-center justify-between w-full space-x-8">
         <div>
-          <img
+          <Image
             className="h-8 w-auto"
-            src="https://chooyagroup.com/res/images/LindaSalesPro-Colored.png"
+            src={logo}
             alt="LindaSalesPro, Receive high-quality leads directly in your inbox and effortlessly convert them into successful sales using LindaSalesPro's built-in sales follow-up tools."
             loading="lazy"
           />
