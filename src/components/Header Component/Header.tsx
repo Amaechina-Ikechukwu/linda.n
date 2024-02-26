@@ -82,7 +82,7 @@ export default function Header({ params }: any) {
           <Image
             className="h-8 w-auto"
             src={logo}
-            alt="LindaSalesPro, Receive high-quality leads directly in your inbox and effortlessly convert them into successful sales using LindaSalesPro's built-in sales follow-up tools."
+            alt="LindaSalesPro"
             loading="lazy"
           />
         </div>
