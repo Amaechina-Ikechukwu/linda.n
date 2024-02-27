@@ -18,7 +18,7 @@ export default function LandingPage() {
           Close Real Estate Sales Faster with LindaSalesPro CRM
         </h1>
         <h2 className=" text-gray-600 dark:text-slate-200 text-lg max-w-2xl font-medium leading-relaxed">
-          {`With LindaSalesPro, you won't chase buyers; they come to you. Our mobile CRM app helps manage and follow up on existing leads, while new leads are delivered straight to your inbox. Focus on closing deals with ease!`}
+          {`Supercharge your real estate business with LindaSalesPro CRM, the powerful mobile app solution designed to empower realtors. Manage leads efficiently, generate high-quality leads, and close deals faster. Trusted by 100+ companies and realtors.`}
         </h2>
         <button
           style={{ boxShadow: "0px 40px 40px rgba(255,165,0,0.5)" }}
