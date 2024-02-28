@@ -92,10 +92,10 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
   const claimOffer = () => {
     fetch(`${process.env.NEXT_PUBLIC_DEV_LINK}/claim-offer`, {
       method: "POST",
-      headers: new Headers({
+      headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-      }),
+      },
       body: JSON.stringify({
         firstname: inputValues["first-name"],
         lastname: inputValues["last-name"],
@@ -106,19 +106,25 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
       }),
       redirect: "follow",
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          console.log({ response });
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
       .then((result) => {
         console.log(result);
         setOpenModal(true);
         setClaimProgress(false);
       })
-      .catch((error: any) => {
+      .catch((error) => {
         setClaimProgress(false);
-        console.log(error);
-        alert(
-          "An error occurred while claiming the offer. Please try again." +
-            JSON.stringify(error)
+        console.error(
+          "There was a problem with the claim offer request:",
+          error
         );
+        alert("An error occurred while claiming the offer. Please try again.");
       });
   };
 
