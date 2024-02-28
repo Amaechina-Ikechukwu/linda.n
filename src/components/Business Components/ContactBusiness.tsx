@@ -108,7 +108,6 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
     })
       .then((response) => {
         if (!response.ok) {
-          console.log({ response });
           throw new Error("Network response was not ok");
         }
         return response.json();
@@ -120,6 +119,12 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
       })
       .catch((error) => {
         setClaimProgress(false);
+        if (error.response && error.response.status === 422) {
+          return error.response.json().then((data: any) => {
+            // Update errors state with validation errors from the server
+            setErrorMessage(data.errors);
+          });
+        }
         console.error(
           "There was a problem with the claim offer request:",
           error
