@@ -101,7 +101,7 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
         lastname: inputValues["last-name"],
         phone: inputValues["phone-number"],
         email: inputValues["email-address"],
-        business: props.business,
+        business: props.business.business_name,
         offer: props.from && props.offers.unique_id,
       }),
       redirect: "follow",
@@ -119,16 +119,7 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
       })
       .catch((error) => {
         setClaimProgress(false);
-        if (error.response && error.response.status === 422) {
-          return error.response.json().then((data: any) => {
-            // Update errors state with validation errors from the server
-            setErrorMessage(data.errors);
-          });
-        }
-        console.error(
-          "There was a problem with the claim offer request:",
-          error
-        );
+
         alert("An error occurred while claiming the offer. Please try again.");
       });
   };
