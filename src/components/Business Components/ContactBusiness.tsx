@@ -114,6 +114,7 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
       })
       .catch((error: any) => {
         setClaimProgress(false);
+        console.log(error);
         alert(
           "An error occurred while claiming the offer. Please try again." +
             JSON.stringify(error)
