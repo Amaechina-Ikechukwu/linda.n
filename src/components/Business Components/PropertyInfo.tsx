@@ -48,7 +48,7 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
             }, offer ends soon)`}</h5>
             <div className="space-y-[10px] sm:space-y-[10px] mt-[20px] items-center">
               <h5 className="text-sm text-gray-700 dark:text-slate-100">
-                Interested in this property?
+                Interested in this offer?
               </h5>
               <LindaButton
                 classname="bg-gray-700 dark:bg-slate-100 dark:text-gray-700 text-slate-100 w-full p-4"
@@ -63,7 +63,7 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
         offer={property}
-        business={property.business}
+        business={property.business.business_url}
       />
     </div>
   );

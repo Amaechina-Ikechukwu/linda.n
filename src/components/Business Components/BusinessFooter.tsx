@@ -13,7 +13,7 @@ export default function BusinessFooter({ business }: any) {
             href={`/${business.business_url}/properties`}
             className="text-gray-600 dark:text-slate-300 underline w-fit"
           >
-            <p>Featured Properties from {business.business_name}</p>
+            <p>See features offered from {business.business_name}</p>
           </Link>
         </div>
         <div className="space-y-4 flex flex-col md:flex-row md:space-y-0 md:space-x-6 md:items-center">

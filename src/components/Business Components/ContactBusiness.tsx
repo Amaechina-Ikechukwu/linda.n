@@ -101,7 +101,7 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
         lastname: inputValues["last-name"],
         phone: inputValues["phone-number"],
         email: inputValues["email-address"],
-        business: props.business.business_name,
+        business: props.business,
         offer: props.from && props.offers.unique_id,
       }),
       redirect: "follow",
@@ -117,7 +117,8 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
         setOpenModal(true);
         setClaimProgress(false);
       })
-      .catch((error) => {
+      .catch((error: any) => {
+        console.log(error);
         setClaimProgress(false);
 
         alert("An error occurred while claiming the offer. Please try again.");

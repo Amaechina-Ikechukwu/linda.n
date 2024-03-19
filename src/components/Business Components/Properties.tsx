@@ -23,7 +23,7 @@ export default function Properties({
           className="h-fit"
         />
         <h1 className="text-gray-700 dark:text-slate-100 text-4xl font-medium">
-          Featured Properties by {properties.data[0].business.business_name}
+          Featured Offers by {properties.data[0].business.business_name}
         </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:justify-center ">
@@ -53,7 +53,7 @@ export default function Properties({
                     : property.description}
                 </h3>
               </div>
-              <LindaButton text="View Property" classname="w-full border p-2" />
+              <LindaButton text="View Offer" classname="w-full border p-2" />
             </div>
           </Link>
         ))}
