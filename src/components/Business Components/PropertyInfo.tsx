@@ -7,6 +7,7 @@ import BusinessFooter from "./BusinessFooter";
 
 export default function PropertyInfo({ property }: { property: OfferData }) {
   const [openModal, setOpenModal] = useState(false);
+  let formatter = new Intl.NumberFormat();
   return (
     <div>
       <div className="sm:flex  sm:justify-between space-y-[20px] sm:space-x-[80px] sm:mt-[100px] items-start ">
@@ -41,10 +42,10 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
           </div>
           <div className="space-y-[20px] sm:space-y-[20px]">
             <h5 className=" text-gray-700 dark:text-slate-100 text-2xl font-bold">
-              {property.currency + property.discounted_amount}
+              {property.currency + formatter.format(property.discounted_amount)}
             </h5>
             <h5 className="text-xs text-gray-700 dark:text-slate-100">{`(Instead of ${
-              property.currency + property.amount
+              property.currency + formatter.format(parseInt(property.amount))
             }, offer ends soon)`}</h5>
             <div className="space-y-[10px] sm:space-y-[10px] mt-[20px] items-center">
               <h5 className="text-sm text-gray-700 dark:text-slate-100">

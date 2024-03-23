@@ -5,7 +5,7 @@ export interface OfferData {
   title: string;
   description: string;
   terms: string;
-  amount: string;
+  amount: number;
   discount: number;
   discounted_amount: number;
   image_url: string;
