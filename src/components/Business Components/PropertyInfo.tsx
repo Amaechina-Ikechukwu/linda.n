@@ -29,16 +29,10 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
           </h2>
           <div className="p-4 rounded-md bg-slate-100 dark:bg-neutral-950 space-y-[10px]">
             <h4 className="text-gray-700 dark:text-slate-100">Terms</h4>
-            {property.terms.split(".").map((term: string, index: number) => (
-              <div key={index} className="flex space-x-4">
-                <h5 className="text-xs text-gray-700 dark:text-slate-100">
-                  {index + 1 + "."}
-                </h5>
-                <h5 className="text-xs text-gray-700 dark:text-slate-100">
-                  {term}
-                </h5>
-              </div>
-            ))}
+
+            <h5 className="text-xs text-gray-700 dark:text-slate-100">
+              {term}
+            </h5>
           </div>
           <div className="space-y-[20px] sm:space-y-[20px]">
             <h5 className=" text-gray-700 dark:text-slate-100 text-2xl font-bold">
