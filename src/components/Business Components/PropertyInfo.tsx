@@ -31,7 +31,7 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
             <h4 className="text-gray-700 dark:text-slate-100">Terms</h4>
 
             <h5 className="text-xs text-gray-700 dark:text-slate-100">
-              {term}
+              {property.terms}
             </h5>
           </div>
           <div className="space-y-[20px] sm:space-y-[20px]">
