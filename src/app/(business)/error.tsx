@@ -9,6 +9,7 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  console.log(error);
   return (
     <div className="w-full h-screen bg-orange-500 flex flex-col  items-center justify-center">
       <h2>Something went wrong!</h2>
