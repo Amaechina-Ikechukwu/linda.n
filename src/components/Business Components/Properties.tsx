@@ -15,13 +15,15 @@ export default function Properties({
   return (
     <div className="space-y-8 mt-[100px]">
       <div className="flex flex-col space-y-4 items-center text-center justify-center">
-        <img
-          src={business.data.business_logo}
-          alt={business.data.business_name}
-          loading="lazy"
-          style={{ height: 50, width: "100%", objectFit: "contain" }}
-          className="h-fit"
-        />
+        <Link href={`/${business.data.business_url}`} className=" w-fit">
+          <img
+            src={business.data.business_logo}
+            alt={business.data.business_name}
+            loading="lazy"
+            style={{ height: 50, width: "100%", objectFit: "contain" }}
+            className="h-fit"
+          />
+        </Link>
         <h1 className="text-gray-700 dark:text-slate-100 text-4xl font-medium">
           Featured Offers by {properties.data[0].business.business_name}
         </h1>

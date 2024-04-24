@@ -113,7 +113,6 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
         setOpenModal(true);
         setClaimProgress(false);
       })

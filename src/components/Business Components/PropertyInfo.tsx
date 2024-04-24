@@ -4,6 +4,7 @@ import LindaButton from "@/constants/LindaButton";
 import React, { useState } from "react";
 import RequestModal from "./RequestModal";
 import BusinessFooter from "./BusinessFooter";
+import Link from "next/link";
 
 export default function PropertyInfo({ property }: { property: OfferData }) {
   const [openModal, setOpenModal] = useState(false);
@@ -24,9 +25,14 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
           <h1 className="text-gray-700  dark:text-slate-100 text-3xl font-bold">
             {property.title}
           </h1>
-          <h2 className="text-gray-700 dark:text-slate-100 text-md leading-loose">
-            {property.description}
-          </h2>
+          <div className="space-y-4">
+            {property.description.split("\n").map((script) => (
+              <h2 className="text-gray-700 dark:text-slate-100 text-md leading-loose">
+                {script}
+              </h2>
+            ))}
+          </div>
+
           <div className="p-4 rounded-md bg-slate-100 dark:bg-neutral-950 space-y-[10px]">
             <h4 className="text-gray-700 dark:text-slate-100">Terms</h4>
 
@@ -36,7 +42,10 @@ export default function PropertyInfo({ property }: { property: OfferData }) {
           </div>
           <div className="space-y-[20px] sm:space-y-[20px]">
             <h5 className=" text-gray-700 dark:text-slate-100 text-2xl font-bold">
-              {property.currency + formatter.format(property.discounted_amount)}
+              {property.discounted_amount == 0
+                ? "Free"
+                : property.currency +
+                  formatter.format(property.discounted_amount)}
             </h5>
             <h5 className="text-xs text-gray-700 dark:text-slate-100">{`(Instead of ${
               property.currency + formatter.format(parseInt(property.amount))

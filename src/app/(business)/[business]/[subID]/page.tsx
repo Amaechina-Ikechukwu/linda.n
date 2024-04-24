@@ -62,7 +62,7 @@ export async function generateMetadata({
       "Real estate",
       "Properties",
       "Realtors",
-      ...offer.data.description.split(" "),
+      ...offer.data.description.split("/n"),
     ],
   };
 }
