@@ -31,7 +31,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose }) => {
               width: "100vw",
               height: "100vh",
               backgroundColor: "rgba(0,0,0,0.4)",
-              zIndex: 20,
+              zIndex: 30,
             }}
             className="flex items-center justify-center  "
           >

@@ -12,6 +12,7 @@ export default function Error({
   return (
     <div className="w-full h-screen bg-orange-500 flex flex-col  items-center justify-center">
       <h4>This business does not exist</h4>
+      <h6>{process.env.DEV_LINK}</h6>
     </div>
   );
 }

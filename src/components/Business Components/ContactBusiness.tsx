@@ -4,6 +4,9 @@ import LindaButton from "@/constants/LindaButton";
 import SuccessModal from "@/constants/SuccessModal";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
 const Option = ({ selectedService, business }: any) => {
   return (
     <div className=" ">
@@ -80,6 +83,13 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
       errors["email-address"] = "Email address is invalid";
       hasError = true;
     }
+    if (
+      !inputValues["phone-number"] ||
+      inputValues["phone-number"].length < 10
+    ) {
+      errors["phone-number"] = "Please enter a valid phone number";
+      hasError = true;
+    }
 
     if (hasError) {
       setErrorMessage(errors);
@@ -87,6 +97,9 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
     } else {
       claimOffer();
     }
+  };
+  const handlePhoneChange = (phone: string) => {
+    setInputValues((prev: any) => ({ ...prev, "phone-number": phone }));
   };
 
   const claimOffer = () => {
@@ -106,20 +119,27 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
       }),
       redirect: "follow",
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+      .then(async (response) => {
+        const result = await response.json();
+
+        if (
+          response.status === 422 &&
+          result.message === "You are already subscribed to the Business"
+        ) {
+          setOpenModal(true);
+          setClaimProgress(false);
+          return;
         }
-        return response.json();
-      })
-      .then((result) => {
+
+        if (!response.ok) {
+          throw new Error(result.message || "Network response was not ok");
+        }
+
         setOpenModal(true);
         setClaimProgress(false);
       })
-      .catch((error: any) => {
-        console.log(error);
+      .catch((error) => {
         setClaimProgress(false);
-
         alert("An error occurred while claiming the offer. Please try again.");
       });
   };
@@ -151,7 +171,25 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
         <div className="space-y-6">
           {convertToApiInputs().map(
             (input, index) =>
-              input !== "service" && (
+              input !== "service" &&
+              (input == "phone-number" ? (
+                <PhoneInput
+                  country={"ng"} // Default country
+                  value={inputValues["phone-number"] || "+"} // Ensure "+" is present
+                  onChange={(value) =>
+                    handlePhoneChange(
+                      value.startsWith("+") ? value : "+" + value
+                    )
+                  }
+                  placeholder="Phone number"
+                  inputProps={{
+                    name: "phone-number",
+                    required: true,
+                    className:
+                      "w-full p-2 rounded-md ring-2 focus:outline-none ring-orange-50 ring-offset-2 drop-shadow-sm text-sm text-gray-700 dark:ring-offset-0 dark:bg-neutral-900 dark:text-slate-100",
+                  }}
+                />
+              ) : (
                 <div key={input}>
                   <input
                     type="text"
@@ -169,7 +207,7 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
                     </p>
                   )}
                 </div>
-              )
+              ))
           )}
         </div>
         <div className="w-full mt-[40px]">

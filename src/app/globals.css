@@ -44,3 +44,16 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+/* Dark theme styles for react-phone-input-2 */
+.react-tel-input .country-list {
+  background-color: #1a1a1a !important; /* Dark background */
+  color: #ffffff !important; /* Light text */
+}
+
+.react-tel-input .country-list .country {
+  color: #ffffff !important; /* Country names in light color */
+}
+
+.react-tel-input .country-list .country:hover {
+  background-color: #333333 !important; /* Slightly lighter on hover */
+}
