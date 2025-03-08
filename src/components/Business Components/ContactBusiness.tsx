@@ -1,5 +1,6 @@
 "use client";
 import { OfferData, Offers } from "@/constants/Business/Offers";
+import ErrorModal from "@/constants/ErrorModal";
 import LindaButton from "@/constants/LindaButton";
 import SuccessModal from "@/constants/SuccessModal";
 import Link from "next/link";
@@ -43,16 +44,13 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
   const [inputValues, setInputValues] = useState<any>({});
   const [errorMessage, setErrorMessage] = useState<any>({});
   const [claimProgress, setClaimProgress] = useState<any>(false);
-  // const [selectedService, setSelectedService] = useState<any>("");
+  const [message, setMessage] = useState<any>();
   const [openModal, setOpenModal] = useState(false);
   const [selectedService, setSelectedService] = useState<any | any[]>();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
-  const handleSelectService = (service: any) => {
-    setSelectedService(service);
-    setDropdownOpen(false); // Close the dropdown
-  };
   const handleInputChange = (event: any) => {
+    setErrorMessage({});
     const { name, value } = event.target;
     setInputValues((prevInputValues: any) => ({
       ...prevInputValues,
@@ -99,6 +97,7 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
     }
   };
   const handlePhoneChange = (phone: string) => {
+    setErrorMessage({});
     setInputValues((prev: any) => ({ ...prev, "phone-number": phone }));
   };
 
@@ -124,14 +123,18 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
 
         if (
           response.status === 422 &&
-          result.message === "You are already subscribed to the Business"
+          (result?.message === "You are already subscribed to the Business" ||
+            result?.message ===
+              "You are already subscribed to the Digital Strategy Masterclass")
         ) {
           setOpenModal(true);
           setClaimProgress(false);
+          setMessage(result?.message);
           return;
         }
 
         if (!response.ok) {
+          setErrorText(result.message || "Network response was not ok");
           throw new Error(result.message || "Network response was not ok");
         }
 
@@ -140,7 +143,9 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
       })
       .catch((error) => {
         setClaimProgress(false);
-        alert("An error occurred while claiming the offer. Please try again.");
+        setErrorText(
+          "An error occurred while claiming the offer. Please try again."
+        );
       });
   };
 
@@ -173,22 +178,29 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
             (input, index) =>
               input !== "service" &&
               (input == "phone-number" ? (
-                <PhoneInput
-                  country={"ng"} // Default country
-                  value={inputValues["phone-number"] || "+"} // Ensure "+" is present
-                  onChange={(value) =>
-                    handlePhoneChange(
-                      value.startsWith("+") ? value : "+" + value
-                    )
-                  }
-                  placeholder="Phone number"
-                  inputProps={{
-                    name: "phone-number",
-                    required: true,
-                    className:
-                      "w-full p-2 rounded-md ring-2 focus:outline-none ring-orange-50 ring-offset-2 drop-shadow-sm text-sm text-gray-700 dark:ring-offset-0 dark:bg-neutral-900 dark:text-slate-100",
-                  }}
-                />
+                <div className="space-y-4">
+                  <PhoneInput
+                    country={"ng"} // Default country
+                    value={inputValues["phone-number"] || "+"} // Ensure "+" is present
+                    onChange={(value) =>
+                      handlePhoneChange(
+                        value.startsWith("+") ? value : "+" + value
+                      )
+                    }
+                    placeholder="Phone number"
+                    inputProps={{
+                      name: "phone-number",
+                      required: true,
+                      className:
+                        "w-full p-2 rounded-md ring-2 focus:outline-none ring-orange-50 ring-offset-2 drop-shadow-sm text-sm text-gray-700 dark:ring-offset-0 dark:bg-neutral-900 dark:text-slate-100",
+                    }}
+                  />
+                  {errorMessage[input.toLowerCase().replace(" ", "")] && (
+                    <p className="text-red-500">
+                      {errorMessage[input.toLowerCase().replace(" ", "")]}
+                    </p>
+                  )}
+                </div>
               ) : (
                 <div key={input}>
                   <input
@@ -212,6 +224,7 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
         </div>
         <div className="w-full mt-[40px]">
           <LindaButton
+            loading={claimProgress}
             text="Submit Request"
             onClick={handleSubmit}
             classname="w-full bg-orange-500 text-slate-200 mt-[40px] p-4"
@@ -229,6 +242,15 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
           <SuccessModal
             isOpen={openModal}
             onClose={() => setOpenModal(false)}
+            message={message}
+          />
+        </div>
+
+        <div className="w-full flex  items-center justify-center">
+          <ErrorModal
+            isOpen={errorText.length > 0}
+            onClose={() => setErrorText("")}
+            message={errorText}
           />
         </div>
       </div>

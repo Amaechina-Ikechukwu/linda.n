@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import ConfettiParticle from "./ConfettiParticle";
-import { FaCheckCircle } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
+import { RiEmotionSadFill } from "react-icons/ri";
 
-interface SuccessModalProps {
+interface ErrorModalProps {
   isOpen: boolean;
   onClose: () => void;
   message?: string;
 }
 
-const SuccessModal: React.FC<SuccessModalProps> = ({
+const ErrorModal: React.FC<ErrorModalProps> = ({
   isOpen,
   onClose,
   message,
@@ -43,19 +43,15 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
             <div className="w-full flex items-center justify-center">
               <div className=" w-11/12 md:w-3/6 bg-zinc-200 dark:bg-neutral-900 p-4 px-6">
                 <div className=" w-full bg-white dark:bg-neutral-900 p-8 rounded-lg shadow-md flex flex-col items-center justify-center space-y-2 ">
-                  <ConfettiParticle
-                    numberOfParticles={200}
-                    onAnimationEnd={handleAnimationEnd}
-                  />
                   <div className="flex flex-col space-y-2 items-center justify-center mb-4">
                     <div className="bg-green-300 p-6">
-                      <FaCheckCircle className=" text-4xl mr-2" />
+                      <RiEmotionSadFill className=" text-4xl mr-2 text-red-400" />
                     </div>
 
-                    <h2 className="text-xl font-semibold">Success!</h2>
+                    <h2 className="text-xl font-semibold">We apologize!</h2>
                   </div>
                   <p className="text-gray-600 dark:text-slate-100">
-                    {message || " Your action was successful. Thank you!"}
+                    {message || " There seems to be an error!"}
                   </p>
                   <button
                     onClick={() => {
@@ -76,4 +72,4 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
   );
 };
 
-export default SuccessModal;
+export default ErrorModal;
