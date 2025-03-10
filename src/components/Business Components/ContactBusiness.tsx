@@ -100,7 +100,9 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
     setErrorMessage({});
     setInputValues((prev: any) => ({ ...prev, "phone-number": phone }));
   };
-
+  useEffect(() => {
+    console.log(props.from, props.offers, props.business);
+  }, []);
   const claimOffer = () => {
     fetch(`${process.env.NEXT_PUBLIC_DEV_LINK}/claim-offer`, {
       method: "POST",
@@ -125,7 +127,7 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
           response.status === 422 &&
           (result?.message === "You are already subscribed to the Business" ||
             result?.message ===
-              "You are already subscribed to the Digital Strategy Masterclass")
+              `You are already subscribed to the ${props.offers.title}`)
         ) {
           setOpenModal(true);
           setClaimProgress(false);
@@ -139,6 +141,7 @@ function ContactBusiness(props: { offers: any; from?: any; business: string }) {
         }
 
         setOpenModal(true);
+        setMessage(result.message);
         setClaimProgress(false);
       })
       .catch((error) => {
